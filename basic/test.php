@@ -1,8 +1,7 @@
 <?php
-hello();
+sampleA('1');
 
-// TODO: このメソッドやばすぎ
-function hello()
-{
-  print 'hello';
+function sampleA(int $userId): void
+{    // 処理
+    echo $userId;
 }
