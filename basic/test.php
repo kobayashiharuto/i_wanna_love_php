@@ -1,7 +1,7 @@
-<?php
-sampleA('1');
+<?php declare(strict_types=1);
 
-function sampleA(int $userId): void
-{    // 処理
-    echo $userId;
+sampleA(1);
+
+function sampleA(int $userId): void {    // 処理
+  echo $userId;
 }
