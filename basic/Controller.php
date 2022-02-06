@@ -3,22 +3,33 @@
 declare(strict_types=1);
 
 class Controller {
-  public readonly int $id;
+  public readonly string $name;
+  public readonly string $color;
 
-  public function __construct(int $id) {
-    $this->id = $id;
+  public function __construct(string $color, string $name) {
+    $this->name = $name;
+    $this->color = $color;
   }
-
-  public function hello(): void {
-    $this->_hello();
-  }
-
-  private function _hello(): void {
-    echo "hello, user{$this->id}";
+        
+  public function copyWith(?string $color = null, ?string $name = null): self {
+    $new = new self(
+      $color ?? $this->color,
+      $name ?? $this->name,
+    );
+    return $new;
   }
 }
 
+
 if (realpath($argv[0]) === __FILE__) {
-  $test = new Controller(1);
-  $test->hello();
+  function main(): void {
+    $test = new Controller("test", "test");
+    $hoge = $test->copyWith(name: "hoge");
+    echo $test->name;
+    echo $test->color;
+    echo $hoge->name;
+    echo $hoge->color;
+  }
+
+  main();
 }
