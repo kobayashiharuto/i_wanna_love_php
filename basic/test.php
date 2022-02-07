@@ -15,10 +15,10 @@ abstract class ParentClass {
 
 // 子クラスの定義
 class ChildrenClass extends ParentClass {
-  protected $children = "子クラスで定義";
-  public function parent_method1() {
-    echo $this->children;
-  }
+    protected $children = "子クラスで定義";
+    public function parent_method1() {
+      echo $this->children;
+    }
 }
 
 $hoge = new ChildrenClass();
